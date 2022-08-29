@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}Notizen{% endblock %} 
+
+{% block content %}
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+<link rel="stylesheet" href="static/css/atcb.min.css" />
+<script src="static/js/atcb.min.js"></script>
+<h3 align="center" style = "color: #f4c430; margin-top: 5%;margin-bottom: 3%; font-size: 32px;">Notizen</h3>
+<ul class="list-group list-group-flush" id="notes">
+<br/>
+  {% for note in user.note %}
+  <li class="list-group-item">
+    {{ note.data }}
+    <div align = "center"><h6>Notiz vom: {{ note.date }}</h6></div>
+    <br />
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn" style="background-color: #f4c430;">Notiz hinzufügen</button>
+  </div>
+</form>
+</body>
+{% endblock %}

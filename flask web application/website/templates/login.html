@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %} 
+{% block content %}
+<form method="POST">
+    <br />
+    <h3 align="center">Login</h3>
+    <div class="form-group">
+      <label for="email">Email Addresse</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Bitte E-Mail Adresse eingeben"
+        autofocus
+      />
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        placeholder="Bitte Passwort eingeben"
+      />
+    </div>
+    <br />
+    <div>
+      <div align = "left">
+        <button type = "submit" name = "button" class="btn btn" style="background-color: #f4c430; padding: 8px;" value="login" >Login</button>
+      </div>
+      <div align = "right">
+        <input name="button" type="submit" class="btn btn-outline-danger" value = "Passwort vergessen" align = "right"></input>
+      </div>
+    </div>
+  </form>
+{% endblock %}

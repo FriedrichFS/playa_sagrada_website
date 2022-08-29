@@ -1,0 +1,118 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} 
+{% block content %}
+
+  <body style="background-image: url(../static/graphics/mediceo_logo.jpg); height: 100%; background-size: cover; background-position: bottom right;">
+    <form method="POST">
+    <div style="display:block; align-content: center; flex-direction: column; padding: 5vh">
+      <div style="width: 100%; text-align: center">
+        
+        <span style="color: #000; font-size: 3vh; font-weight: 600; text-transform: uppercase;">
+          Hallo 
+        </span>
+      
+      
+        <span class="mediceo_yellow" style="color: #f4c430; font-size: 3vh;font-weight: 600;text-transform: uppercase;">
+          {{ user.first_name}},
+        </span>
+    
+        <span class="mediceo_yellow" style="color: #000; font-size: 3vh;font-weight: 600;text-transform: uppercase;">
+           willkommen im MEDICEO Mitarbeiterportal!
+        </span>
+      </div>
+    
+    
+      <div style="width: 100%; justify-content: center; display: flex">
+    <div style=" max-width: 600px; margin-bottom: 10%; margin-top: 5vh; width: 100%;">
+      <div>
+        <div style="display:flex; flex-direction: column;">
+          <div style="display:flex; flex-direction: row;">
+            <div id="container">
+              <span class="title">Arbeitszeiten eintragen</span>
+              <button name="home_button" style="padding-top: 16px;" type="submit" class="btn btn-default" value = "Arbeitszeiten eintragen">
+                <img class="image" src="../static/graphics/Arbeitszeiten_mediceo_website.png" />
+          </button>
+            </div>
+            <div id="container">
+              <span class="title" >Arbeitszeiten verwalten</span>
+              <button name="home_button" type="submit" style="padding-top: 16px;" class="btn btn-default" value = "Arbeitszeiten verwalten">
+                <img class="image" src="../static/graphics/Bearbeiten_mediceo_website.png"/>
+          </button>
+            </div>
+          </div>
+          <div style="display:flex; flex-direction: row;">
+            <div id="container">
+              <span class="title">Arbeitszeiten anzeigen</span>
+              <button name="home_button" type="submit" style="padding-top: 16px;" class="btn btn-default" value = "Arbeitszeiten anzeigen">
+                <img class="image" src="../static/graphics/Anzeigen_mediceo_website.png" />
+              </button>
+            </div>
+            <div id="container">
+              <span class="title" >Einstellungen</span>
+              <button name="home_button" type="submit" style="padding-top: 16px;" class="btn btn-default" value = "Einstellungen">
+                <img class="image" src="../static/graphics/Einstellungen_mediceo_website.png" />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+    </form>
+    </body>
+
+
+
+
+<style lang="text/css">
+
+#container {
+  width: 50%; 
+  aspect-ratio: 1; 
+  background-color: #ffffff;
+  margin: 2%; 
+  padding: 8px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  flex-direction: column; 
+  border-style: solid; 
+  border-width: 2px; 
+  border-color: #8B8B8B; 
+  border-radius: 12px;
+  max-width: 400px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  
+} 
+
+@media screen and (max-width : 900px) {
+  .image {
+    opacity: 0.6;
+    max-width: 10vh;
+  }
+
+  .title {
+    font-size: 2vh;
+    color: #f4c430;
+     text-align: center
+  } 
+
+} 
+
+@media screen and (min-width : 900px) {
+  .image {
+    opacity: 0.6; 
+    max-width: 150px;
+  }
+
+  .title {
+    font-size: 22px;
+    color: #f4c430;
+     text-align: center
+  } 
+
+}
+
+</style>
+
+{% endblock %}

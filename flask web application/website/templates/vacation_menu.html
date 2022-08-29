@@ -1,0 +1,90 @@
+{% extends "base.html" %} {% block title %}Urlaubsmenü{% endblock %} 
+{% block content %}
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg); height: 100%; background-size: cover; background-position: bottom right;">
+    <form method="POST">
+        <div style="display:block; align-content: center; flex-direction: column; padding: 5vh">
+    <h3 style = "color: #f4c430; margin-top: 5%;margin-bottom: 5vh; font-size: 32px; align-items: center; align-content: center;">Urlaubsmenü</h3>
+    <div style="display:block; flex-direction: column; padding: 5vh">
+      
+{% if user.user_stat == "Admin" %}
+
+<div style="width: 100%; justify-content: center; display: flex">
+    <div style=" max-width: 600px; margin-bottom: 10%; margin-top: 5vh; width: 100%;">
+      <div>
+        <div style="display:flex; flex-direction: column;">
+          <div style="display:flex; flex-direction: row;">
+            <div id="container">
+              <span class="title">Urlaubsantrag stellen</span>
+            <button name="home_button" style="padding-top: 16px;" type="submit" class="btn btn-default" value = "Urlaub eintrage">
+                <img class="image" src="../static/graphics/summer.png" />
+          </button>
+            </div>
+            <div id="container">
+              <span class="title" >Urlaubsanträge verwalten</span>
+              <button name="home_button" type="submit" style="padding-top: 16px;" class="btn btn-default" value = "Urlaubsanträge">
+                <img class="image" src="../static/graphics/checked.png"/>
+          </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+{% else %}
+    <h1 style="color: red">You've been redirected to a page you don't have access to. Please close this window and contact the system admin</h1>
+{% endif %}
+</div>
+</div>
+</form>
+</body>
+<style lang="text/css">
+
+    #container {
+      width: 50%; 
+      aspect-ratio: 1; 
+      background-color: #ffffff;
+      margin: 2%; 
+      padding: 8px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      flex-direction: column; 
+      border-style: solid; 
+      border-width: 2px; 
+      border-color: #8B8B8B; 
+      border-radius: 12px;
+      max-width: 400px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      
+    } 
+    
+    @media screen and (max-width : 900px) {
+      .image {
+        opacity: 0.6;
+        max-width: 10vh;
+      }
+    
+      .title {
+        font-size: 2vh;
+        color: #f4c430;
+         text-align: center
+      } 
+    
+    } 
+    
+    @media screen and (min-width : 900px) {
+      .image {
+        opacity: 0.6; 
+        max-width: 150px;
+      }
+    
+      .title {
+        font-size: 22px;
+        color: #f4c430;
+         text-align: center
+      } 
+    
+    }
+    
+    </style>
+{% endblock %}

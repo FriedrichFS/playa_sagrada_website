@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Arbeitszeiten anzeigen{% endblock %} 
+{% block content %}
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+    <div align = "center">
+        <h3 style = "color:  #f4c430; margin-top: 5%;margin-bottom: 3%; font-size: 32px;">Dein MEDICEO Profil</h3>
+    </div>
+    <div align = "center">
+        <img style="opacity: 0.6; margin-bottom: 1%; margin-top: 1%" src="../static/graphics/user.png" width="150" />
+    </div>
+    <div align = "center">
+        <h3 style = " margin-top: 1.25%;margin-bottom: 1%; font-size: 20px; color: #8B8B8B">Name:</h3>
+        <h3 style = " margin-top: 1%;margin-bottom: 1.75%; font-size: 25px; ">{{ user.first_name }}</h3>
+        <h3 style = " margin-top: 1.25%;margin-bottom: 1%; font-size: 20px; color: #8B8B8B">Nachname:</h3>
+        <h3 style = " margin-top: 1%;margin-bottom: 1.75%; font-size: 25px; ">{{ user.second_name }}</h3>
+        <h3 style = " margin-top: 1.25%;margin-bottom: 1%; font-size: 20px; color: #8B8B8B">Anstellung</h3>
+        <h3 style = " margin-top: 1%;margin-bottom: 1.75%; font-size: 25px; ">{{ user.user_dep }}</h3>
+        <h3 style = " margin-top: 1.25%;margin-bottom: 1%; font-size: 20px; color: #8B8B8B">Zugriffsrechte</h3>
+        <h3 style = " margin-top: 1%;margin-bottom: 1.75%; font-size: 25px; ">{{ user.user_stat }}</h3>
+    </div>
+</body>
+{% endblock %}

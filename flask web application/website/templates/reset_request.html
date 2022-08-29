@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block title %}Passwort zurücksetzen{% endblock %} 
+{% block content %}
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+<form method="POST">
+    <br />
+    <h3 style = "color: #f4c430; margin-top: 5%;margin-bottom: 5vh; font-size: 32px;" align="center">Passwort zurücksetzen</h3>
+    <div class="form-group">
+      <label for="email">E-Mail Adresse</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        placeholder="Deine benutzte E-Mail"
+      />
+    </div>
+    <br />
+      <Button type="submit" class="btn btn" style="background-color: #f4c430;">Abschicken</button>
+    </form>
+    <br />
+</body>
+{% endblock %}

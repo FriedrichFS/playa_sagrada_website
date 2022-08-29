@@ -1,0 +1,71 @@
+{% extends "base.html" %} {% block title %}Arbeitszeiten exportieren{% endblock %} 
+{% block content %}
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+  <head>
+    <script>
+    //   $(".dropdown-menu").on('click', 'li a', function(){
+    //     console.log("called dropsown click")
+    //   // var selText = $(this).children("h4").html();
+      
+
+    //   // $(this).parent('li').siblings().removeClass('active');
+    //   // $('#vl').val($(this).attr('data-value'));
+    //   // $(this).parents('.btn-group').find('.selection').html(selText);
+    //   // $(this).parents('li').addClass("active");
+    // });
+
+    function dropdownClicked(id) {
+      console.log("clicked", 1)
+    }
+  </script>
+  </head>
+<form method="POST">
+  
+
+    <br />
+    <div stlye="align-items: center">
+    <h3 align="center" style = "color: #f4c430; margin-top: 5%;margin-bottom: 3%; font-size: 32px;">Arbeitszeiten exportieren</h3>
+    <br />
+    <div align = "center">
+
+    <h6>Bitte wähle einen User aus: </h6>
+    <br />
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="user_name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name = "user_name" >
+        User
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        {% for rows in names %}
+        <a class="dropdown-item" value = {{rows.first_name}}>{{ rows.first_name }}</a>
+        {% endfor %}
+      </div>
+      </div>
+      <br />
+      <div class="dropdown">
+        <button class="dropdown-btn btn btn-default dropdown-toggle" type="button" id="dropdown_month" name="dropdown_month" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" >Monat</button>
+        <span class="caret"></span>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+          <li><a href="#" class="dropdown-item" value = 1 onclick=dropdownClicked(1)>Januar</a></li>
+          <li><a href="#" class="dropdown-item" value = 2>Februar</a></li>
+          <li><a href="#" class="dropdown-item" value = 3>März</a></li>
+          <li><a href="#" class="dropdown-item" value = 4>April</a></li>
+          <li><a href="#" class="dropdown-item" value = 5>Mai</a></li>
+          <li><a href="#" class="dropdown-item" value = 6>Juni</a></li>
+          <li><a href="#" class="dropdown-item" value = 7>Juli</a></li>
+          <li><a href="#" class="dropdown-item" value = 8>August</a></li>
+          <li><a href="#" class="dropdown-item" value = 9>September</a></li>
+          <li><a href="#" class="dropdown-item" value = 10>Oktober</a></li>
+          <li><a href="#" class="dropdown-item" value = 11>November</a></li>
+          <li><a href="#" class="dropdown-item" value = 12>Dezember</a></li>
+        </ul>
+    </div>
+    <br />
+    </div>  
+  </div>
+  <div align = "center">
+    <button type = "submit" name = "button" href = "{{ file_name }}" class="btn btn" style="background-color: #f4c430; padding: 8px;" value="login">Login</button>
+  </div>
+</form>
+</body>
+
+{% endblock %}

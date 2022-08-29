@@ -1,0 +1,29 @@
+{% extends "base.html" %}{% block title %}Passwort zurücksetzen{% endblock %} 
+{% block content %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Verify your account</title>
+  </head>
+  <body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+<form method="POST">
+    <br />
+    <h3 align="center" style = "color: #f4c430; margin-top: 5%;margin-bottom: 3%; font-size: 32px;">Passwort zurücksetzen</h3>
+    <div class="form-group">
+      <label for="email">Dir wurde an deine Email ein Verifizierungscode gesendet. Bitte gebe ihn hier ein.</label>
+      <input
+        type="text"
+        class="form-control"
+        id="verificationcode"
+        name="verificationcode"
+        placeholder="Verifizierungscode"
+      />
+    </div>
+    <br />
+      <Button type="submit" class="btn btn" style="background-color: #f4c430;">Abschicken</button>
+    </form>
+    <br />
+</html>
+{% endblock %}

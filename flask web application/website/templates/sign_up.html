@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% block title %}User anlegen{% endblock %} {% block
+    content %}
+    <body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+    <br />
+    <form method="POST">
+      <h3 align="center" style = "color: #f4c430; margin-top: 5%;margin-bottom: 3%; font-size: 32px;">User anlegen</h3>
+      <div class="form-group">
+        <label for="email">Email Addresse</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="E-mail eingeben"
+          autofocus
+        />
+      </div>
+      <div class="form-group">
+        <label for="firstName">Vorname</label>
+        <input
+          type="text"
+          class="form-control"
+          id="firstName"
+          name="firstName"
+          placeholder="Vornamen eingeben"
+        />
+      </div>
+      <div class="form-group">
+        <label for="secondName">Nachname</label>
+        <input
+          type="text"
+          class="form-control"
+          id="secondName"
+          name="secondName"
+          placeholder="Nachnamen eingeben"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password1">Passwort</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password1"
+          name="password1"
+          placeholder="Passwort eingeben"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password2">Password bestätigen</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password2"
+          name="password2"
+          placeholder="Passwort bestätigen"
+        />
+      </div>
+      <div class="form-group">
+        <label for="user_status">User Status eingeben</label>
+        <input
+          type="text"
+          class="form-control"
+          id="user_stat"
+          name="user_stat"
+          placeholder="Admin / User"
+        />
+        </div>
+        <div class="form-group">
+          <label for="user_status">Anstellung</label>
+          <input
+            type="text"
+            class="form-control"
+            id="user_dep"
+            name="user_dep"
+            placeholder="Geschäftsführung / Vollzeit / Teilzeit / Werkstudent / Mini-Job"
+          />
+        </div>
+        <br />
+      <button type="submit" class="btn btn" style="background-color: #f4c430;">Abschicken</button>
+    </form>
+    {% endblock %}
