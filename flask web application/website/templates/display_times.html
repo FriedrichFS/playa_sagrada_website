@@ -1,0 +1,176 @@
+{% extends "base.html" %} {% block title %}Arbeitszeiten anzeigen{% endblock %} 
+{% block content %}
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+<div style = "align-items: center;">
+<h3 style = "color: #f4c430; margin-top: 5%;margin-bottom: 5vh; font-size: 32px;align-items: center;">Arbeitszeiten</h3>
+<ul class="list-group list-group-flush" id="notes">
+<div style="align-items: center;">
+<table id="example" class="table table-striped text" cellspacing="0" width="100%" style = "margin-bottom: 3%;">
+  <thead>
+      <tr>
+          <th>Datum</th>
+          <th>Von</th>
+          <th>Bis</th>
+          <th>Pausenzeit in min</th>
+          <th>Gesamtzeit in h</th>
+      </tr>
+  </thead>
+  {% if not user.work %}
+  <tfoot>
+  <div style = "color: #8B8B8B; margin-top: 3%;margin-bottom: 3%; font-size: 32px;">
+  <h5>Derzeit sind keine Einträge vorhanden</h5>
+  </div>
+  {% else %}
+  {% for arbeit in user.work %}
+  <tfoot>
+      <tr>
+        <th>{{arbeit.date}}</th>
+        <th>{{arbeit.von}}</th>
+        <th>{{arbeit.bis}}</th>
+        <th>{{arbeit.break_user}}</th>
+        <th>{{arbeit.length}}</th>
+      </tr>
+  {% endfor %}
+  </tfoot>
+</table>
+{% endif %}
+<table id="example" class="table table-striped text" cellspacing="0" width="100%">
+  <tr>
+    <th>Soll für diesen Monat: {{ soll_user }}</th>
+    {% if ist_user >= soll_user %}
+    <th style = "color: green;">Ist für diesen Monat: <b>{{ ist_user }}</b></th>
+    {% else  %}
+    {% if (ist_user / soll_user)*100 >50 %}
+    <th style = "color: #FF8C00;">Ist für diesen Monat: <b>{{ ist_user }}</b></th>
+    {% else %}
+    <th style = "color: red;">Ist für diesen Monat: <b>{{ ist_user }}</b></th>
+    {% endif %}
+    {% endif %}
+  </tr>
+</table>
+<table id="example" class="table table-striped text" cellspacing="0" width="100%" style = "margin-bottom: 5%; margin-top: 5%; align-items: right;">
+  <thead>
+    <th></th>
+    <th>Monat:</th>
+    <th>Gesamtstunden:</th>
+
+  </thead>
+  <tfoot>
+  <tr>
+    {% if december_list and current_month != "12" %}
+    <th></th>
+      <th>Dezember</th>
+      <th>{{ december_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if november_list and current_month != "11" %}
+    <th></th>
+    <th>November</th>
+      <th>{{ november_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if october_list and current_month != "10" %}
+    <th></th>
+    <th>Oktober</th>
+      <th>{{ october_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if september_list and current_month != "9" %}
+      <th></th>
+    <th>September</th>
+      <th>{{ september_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if august_list and current_month != "8" %}
+    <th></th>
+    <th>August</th>
+      <th>{{ august_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if july_list and current_month != "7" %}
+    <th></th>
+    <th>Juli</th>
+      <th>{{ july_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if june_list and current_month != "6" %}
+    <th></th>
+    <th>Juni</th>
+      <th>{{ june_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if may_list and current_month != "5" %}
+    <th></th>
+    <th>Mai</th>
+      <th>{{ may_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if april_list and current_month != "4" %}
+    <th></th>
+    <th>April</th>
+      <th>{{ april_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if march_list and current_month != "3" %}
+    <th></th>
+    <th>März</th>
+      <th>{{ march_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if february_list and current_month != "2" %}
+    <th></th>
+    <th>Februar</th>
+      <th>{{ february_len }}</th>
+    {% endif %}
+    </tr>
+    <tr>
+    {% if january_list and current_month != "1" %}
+    <th></th>
+    <th>Januar</th>
+      <th>{{ january_len }}</th>
+    {% endif %}
+  </tr>
+</tfoot>
+</table>
+</div>
+<div>
+  
+</div>
+</div>
+</body>
+
+<style>
+@media screen and (max-width : 900px) {
+
+
+  .text {
+    font-size: 10px;
+    color: black;
+    font-weight: 400;
+     text-align: center
+  } 
+
+} 
+
+@media screen and (min-width : 900px) {
+  .text {
+    font-size: 18px;
+    color: black;
+    font-weight: 400;
+     text-align: center
+  } 
+} 
+</style>
+
+
+{% endblock %}

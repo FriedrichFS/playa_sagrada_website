@@ -1,0 +1,152 @@
+{% extends "base.html" %} {% block title %}Arbeitszeiten Übersicht{% endblock %} 
+{% block content %}
+
+<body style="background-image: url(../static/graphics/mediceo_logo.jpg);">
+<form method = "POST">
+    <div style = "align-items: center;">
+    <h3 style = "color: #f4c430; margin-top: 5%;margin-bottom: 5vh; font-size: 32px; align-items: center;">Arbeitszeitenübersicht</h3>
+
+    <div class="dropdown" style = "top-margin:  3vh; bottom-margin 3vh;">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="user_name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" name = "user_name" >
+          User
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          {% for rows in names %}
+          <a class = "dropdown-item" value = "{{rows.first_name}}">{{ rows.first_name }}</a>
+          {% endfor %}
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary" name = "update_button" value = "update">Updaten</button>
+        </div>
+        
+        </div>
+    <div style="align-items: center; margin-top: 3%;">
+
+
+      <table id="example" class="table table-striped text" cellspacing="0" width="100%" style = "margin-bottom: 5%;">
+          <thead>
+
+          </thead>
+          <tfoot>
+          </div>
+          <tfoot>
+              <tr>
+                <th>Mitarbeiter ID: {{user.id}}</th>
+                <th>Mitarbeiter: {{user.first_name+ " " + user.second_name}}</th>
+                <th>Sollstunden: 160</th>
+                <th>Urlaubstage pro Jahr: 30</th>
+              </tr>
+          </tfoot>
+        </table>
+    <div style="align-items: center;">
+
+
+        <table id="example" class="table table-striped text" cellspacing="0" width="100%" style = "margin-bottom: 3%;">
+            <thead>
+                <tr>
+                    <th>Monat</th>
+                    <th>Ist</th>
+                    <th>genehmigte Urlaubstage in diesem Monat</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    {% if december_list %}
+                    <th></th>
+                    {% if ist_user >= soll_user %}
+                    <th style = "color: green;">Ist für diesen Monat: <b>{{ ist_user }}</b></th>
+                    {% else  %}
+                    {% if (ist_user / soll_user)*100 >50 %}
+                    <th style = "color: #FF8C00;">Ist für diesen Monat: <b>{{ ist_user }}</b></th>
+                    {% else %}
+                    <th style = "color: red;">Ist für diesen Monat: <b>{{ ist_user }}</b></th>
+                    {% endif %}
+                    {% endif %}
+                      <th>Dezember</th>
+                      <th>{{ december_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if november_list %}
+                    <th></th>
+                    <th>November</th>
+                      <th>{{ november_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if october_list %}
+                    <th></th>
+                    <th>Oktober</th>
+                      <th>{{ october_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if september_list %}
+                      <th></th>
+                    <th>September</th>
+                      <th>{{ september_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if august_list %}
+                    <th></th>
+                    <th>August</th>
+                      <th>{{ august_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if july_list %}
+                    <th></th>
+                    <th>Juli</th>
+                      <th>{{ july_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if june_list %}
+                    <th></th>
+                    <th>Juni</th>
+                      <th>{{ june_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if may_list %}
+                    <th></th>
+                    <th>Mai</th>
+                      <th>{{ may_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if april_list %}
+                    <th></th>
+                    <th>April</th>
+                      <th>{{ april_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if march_list %}
+                    <th></th>
+                    <th>März</th>
+                      <th>{{ march_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if february_list %}
+                    <th></th>
+                    <th>Februar</th>
+                      <th>{{ february_len }}</th>
+                    {% endif %}
+                    </tr>
+                    <tr>
+                    {% if january_list %}
+                    <th></th>
+                    <th>Januar</th>
+                      <th>{{ january_len }}</th>
+                    {% endif %}
+                  </tr>
+            </tfoot>
+          </table>
+        </div>
+    </form>
+</body>
+
+{% endblock %}
