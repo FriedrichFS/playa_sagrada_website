@@ -13,7 +13,23 @@ import shutil
 from dotenv import load_dotenv
 from twilio.rest import Client
 import sqlite3
-from pprint import pprint
+import pyrebase
+
+config = {
+    "apiKey": "AIzaSyA05NzVjcRpr9Z1mKL4ij5HhdiKzeGcuw8",
+    "authDomain": "playasagrada-9db3b.firebaseapp.com",
+    "projectId": "playasagrada-9db3b",
+    "storageBucket": "playasagrada-9db3b.appspot.com",
+    "messagingSenderId": "521917073602",
+    "appId": "1:521917073602:web:77d03ecded8644707a535b",
+    "measurementId": "G-MXKM0KL8M0",
+    "databaseURL": ""
+
+}
+
+firebase = pyrebase.initialize_app(config)
+pimmel = firebase.auth()
+    
 
 load_dotenv()
 TWILIO_ACCOUNT_SID = 'AC5b2b173993defc40a9e555c54fa2e82a'
@@ -23,8 +39,6 @@ SENDGRID_API_KEY=  'd-6ac8199c58b4497f9ef7568aa05d409b'
 TWILIO_VERIFY_SERVICE = 'VA552a5e3eef19995560d6de1dfe31927b'
 
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)  
-
-sqlite_connection= sqlite3.connect('database.db', check_same_thread=False)
 
 
 auth = Blueprint("auth", __name__)
@@ -326,6 +340,19 @@ def sign_up():
                 return redirect(url_for("views.home"))
 
     return render_template("sign_up.html", user = current_user)
+
+
+@auth.route("register_user", methods = ["POST","GET"])
+def register_user():
+    email = "test.mail@google.com"
+    password = "123456"
+
+
+    user = pimmel.create_user_with_email_and_passsword(email, password)
+    print(user)
+    return "successfull"
+
+
 
 
 @auth.route("/enter", methods = ["GET","POST"])
